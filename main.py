@@ -1,5 +1,5 @@
-from telegram import Updater
-from mmboard_bot.handlers import setup_dispatcher
+from telegram.ext import Updater
+from handlers import setup_dispatcher
 from settings import TELEGRAM_TOKEN
 
 updater = Updater(TELEGRAM_TOKEN)
