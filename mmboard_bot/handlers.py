@@ -1,6 +1,7 @@
 from telegram.ext import CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from settings import WELCOME_MESSAGE, TELEGRAM_ADMIN_CHAT_ID, REPLY_TO_THIS_MESSAGE, WRONG_REPLY, TELEGRAM_CHANNEL_ID
+from mmboard_bot.settings import WELCOME_MESSAGE, TELEGRAM_ADMIN_CHAT_ID, REPLY_TO_THIS_MESSAGE, WRONG_REPLY, TELEGRAM_CHANNEL_ID
+
 
 def start(update, context):
     update.message.reply_text(WELCOME_MESSAGE)
