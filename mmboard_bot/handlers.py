@@ -1,6 +1,6 @@
 from telegram.ext import CommandHandler, MessageHandler, Filters, CallbackQueryHandler
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
-from mmboard_bot.settings import WELCOME_MESSAGE, TELEGRAM_ADMIN_CHAT_ID, REPLY_TO_THIS_MESSAGE, WRONG_REPLY, TELEGRAM_CHANNEL_ID
+from mmboard_bot.settings import WELCOME_MESSAGE, TELEGRAM_ADMIN_CHAT_ID, TELEGRAM_CHANNEL_ID
 
 
 def start(update, context):
@@ -42,8 +42,7 @@ def forward_to_chat(update, context):
         [
             InlineKeyboardButton("Запостить", callback_data='1'),
             InlineKeyboardButton("Отклонить", callback_data='2'),
-        ],
-        [InlineKeyboardButton("Отправивший", url=url)]
+        ]
     ]
     reply_markup = InlineKeyboardMarkup(keyboard)
 
@@ -53,6 +52,8 @@ def forward_to_chat(update, context):
         from_chat_id=update.message.chat_id,
         reply_markup = reply_markup
     )
+
+    context.bot.send_message(chat_id=TELEGRAM_ADMIN_CHAT_ID, text=url)
 
 
 def setup_dispatcher(dp):
