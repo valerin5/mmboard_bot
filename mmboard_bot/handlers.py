@@ -37,7 +37,7 @@ def button(update, context):
 
 def forward_to_chat(update, context):
     # ссылка не работает(
-    markdown = "<a href=\"tg://user?id=${update.message.from_user.id}\">Отправивший</a>"
+    markdown = f"<a href=\"tg://user?id={update.message.from_user.id}\">Отправивший</a>"
     keyboard = [
         [
             InlineKeyboardButton("Запостить", callback_data='1'),
