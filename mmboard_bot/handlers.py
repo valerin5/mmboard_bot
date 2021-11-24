@@ -37,7 +37,7 @@ def button(update, context):
 
 def forward_to_chat(update, context):
     # ссылка не работает(
-    url = 'tg://user?id=%s' % update.message.from_user.id
+    markdown = "<a href=\"tg://user?id=${update.message.from_user.id}\">Отправивший</a>"
     keyboard = [
         [
             InlineKeyboardButton("Запостить", callback_data='1'),
@@ -53,7 +53,7 @@ def forward_to_chat(update, context):
         reply_markup = reply_markup
     )
 
-    context.bot.send_message(chat_id=TELEGRAM_ADMIN_CHAT_ID, text=url)
+    context.bot.send_message(chat_id=TELEGRAM_ADMIN_CHAT_ID, text=markdown, parse_mode="html")
 
 
 def setup_dispatcher(dp):
