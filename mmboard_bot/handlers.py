@@ -11,27 +11,26 @@ def button(update, context):
     query = update.callback_query
     if query.data == '1':
         query.message.copy(chat_id=TELEGRAM_CHANNEL_ID)
-        context.bot.edit_message_text(
-            chat_id=query.message.chat_id,
-            message_id=query.message.message_id,
-            text=query.message.text + '\n\nЗапощено',
-            reply_markup=[]
-        )
         context.bot.edit_message_reply_markup(
             chat_id=query.message.chat_id,
             message_id=query.message.message_id,
             reply_markup=[]
+        )
+        context.bot.send_message(
+            chat_id=query.message.chat_id,
+            reply_to_message_id=query.message.message_id,
+            text="Запощено"
         )
     else:
-        context.bot.edit_message_text(
-            chat_id=query.message.chat_id,
-            message_id=query.message.message_id,
-            text=query.message.text + '\n\nОтклонено',
-        )
         context.bot.edit_message_reply_markup(
             chat_id=query.message.chat_id,
             message_id=query.message.message_id,
             reply_markup=[]
+        )
+        context.bot.send_message(
+            chat_id=query.message.chat_id,
+            reply_to_message_id=query.message.message_id,
+            text="Отклонено"
         )
 
 
