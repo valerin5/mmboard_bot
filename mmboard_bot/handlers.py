@@ -15,6 +15,7 @@ def button(update, context):
             chat_id=query.message.chat_id,
             message_id=query.message.message_id,
             text=query.message.text + '\n\nЗапощено',
+            reply_markup=[]
         )
         context.bot.edit_message_reply_markup(
             chat_id=query.message.chat_id,
